@@ -21,7 +21,7 @@
 > [!WARNING]  
 > This repository is shared without warranty, as detailed in the license. Use at your own risk.
 
-> [!CAUTION]  
+> [!CAUTION] 
 > If uninstalling, be sure to re-enable automatic fan control with
 > ```
 > sudo nvidia-settings -a gpufancontrolstate=0
@@ -52,14 +52,15 @@ Copy NVFanControl.nix to your /etc/nixos directory, and add it as an import to y
     ];
 ```
 
-After rebuilding, the service should be running automatically. You can check the status with:
-```
-systemctl status NVFanControl
-```
 By default, Nvidia GPUs manage the fan speed with the firmware. To change this setting to allow this script to control your fan speed, use the below command. Do not forget to revert this command if disabling this fan control script.
 
 ```
 sudo nvidia-settings -a gpufancontrolstate=1
+```
+
+After rebuilding, the service should be running automatically. You can check the status with:
+```
+systemctl status NVFanControl
 ```
 
 The system should return the current temperature and target fan speed. It will also confirm that the target fan speed was assigned to the GPU fan(s).
