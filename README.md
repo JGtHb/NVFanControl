@@ -56,6 +56,12 @@ After rebuilding, the service should be running automatically. You can check the
 ```
 systemctl status NVFanControl
 ```
+By default, Nvidia GPUs manage the fan speed with the firmware. To change this setting to allow this script to control your fan speed, use the below command. Do not forget to revert this command if disabling this fan control script.
+
+```
+sudo nvidia-settings -a gpufancontrolstate=1
+```
+
 The system should return the current temperature and target fan speed. It will also confirm that the target fan speed was assigned to the GPU fan(s).
 
 ```
@@ -77,7 +83,6 @@ By default, the script will check the current temperature of the GPU on Display 
 No direct configuration is supported, but the script is small and easily modified for your use-case. Points of interest might include:
 * /run/current-system/sw/bin is only need on NixOS systems. Traditional systems can omit this.
 * The -c 0 option of nvidia-settings refers to the display to be controlled (e.g. DISPLAY=:0).
-* The script will disable automatic fan control on every run with the nvidia-settings option GPUFanControlState=1. 
 * The script uses a steep sine wave curve to smoothly ramp fan speeds when the GPU is between 50 and 80 degrees celsius. If you want to adjust this curve, use a graphing calculator to check your formula. Pay attention to the temperature floor and ceilling, as your curve may oscillate a different direction than intended if it is not properly bound. Test changes thoroughly.
 
 
