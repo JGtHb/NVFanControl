@@ -78,7 +78,7 @@ No direct configuration is supported, but the script is small and easily modifie
 * /run/current-system/sw/bin is only need on NixOS systems. Traditional systems can omit this.
 * The -c 0 option of nvidia-settings refers to the display to be controlled (e.g. DISPLAY=:0).
 * The script will disable automatic fan control on every run with the nvidia-settings option GPUFanControlState=1. 
-* The script uses a steep sine wave curve to smoothly ramp from 50. If you want to adjust this curve, use a graphing calculator to check your formula. Pay attention to the temperature floor and ceilling, as your curve may oscillate a different direction than intended if it is not properly bound. Test changes thoroughly.
+* The script uses a steep sine wave curve to smoothly ramp fan speeds when the GPU is between 50 and 80 degrees celsius. If you want to adjust this curve, use a graphing calculator to check your formula. Pay attention to the temperature floor and ceilling, as your curve may oscillate a different direction than intended if it is not properly bound. Test changes thoroughly.
 
 
 ## Removal
