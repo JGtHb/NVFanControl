@@ -19,14 +19,13 @@
 </p>
 
 > [!WARNING]  
-> This repository is shared without warranty. It is intended for reference. Use at your own risk.
+> This repository is shared without warranty, as detailed in the license. Use at your own risk.
 
 > [!CAUTION]  
 > If uninstalling, be sure to re-enable automatic fan control with
 > ```
 > sudo nvidia-settings -a gpufancontrolstate=0
 > ```
-> This script disables automatic fan control and enables manual fan control when run (as required to control the gpu fans). 
 
 
 ## Overview
